@@ -13,6 +13,11 @@ H1{
     margin: 1rem;
 }
 
+H2{
+    text-align: center;
+    margin: 1rem;
+}
+
 #all-books {
     display:grid;
     grid-template-columns: 20% 20% 20%;

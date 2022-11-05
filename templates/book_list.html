@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Document</title>
+</head>
+
 <header>
     <h1>The Feminist Library</h1>
 </header>
@@ -12,9 +20,33 @@
             <h3>{{book.title}}</h3>
             <p>{{book.author}}</p>
             <p>{{book.genre}}</p>
+            <p>{{book.status}}</p>
+            <form action="/status" method="post">
+                <input type="radio" id="checked_in" name="status" value="checked_in">
+                <label for="checked_in">Checked In</label>
+                <input type="radio" id="checked_out" name="status" value="checked_out">
+                <label for="checked_out">Checked Out</label>
+                <br>
+                <input type="submit" value="Update Status">
+            </form>
         </div>
         {% endfor %}
     </div>
+    <form action="/book_list" method="post">
+        <label for "title">Book Title</label>
+        <input type="text" name="title" id="title">
+        <label for "author">Author</label>
+        <input type="text" name="author" id="author">
+        <label for "genre">Genre</label>
+        <input type="text" name="genre" id="genre">
+        <br>
+        <input type="radio" id="checked_in" name="status" value="checked_in">
+        <label for="checked_in">Checked In</label>
+        <input type="radio" id="checked_out" name="status" value="checked_out">
+        <label for="checked_out">Checked Out</label>
+        <br>
+        <input type="submit" value="Add Book">
+    </form>
 </main>
 
 
