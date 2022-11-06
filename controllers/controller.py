@@ -2,7 +2,7 @@ from models.book import *
 from models import library
 from models.library import *
 from app import app
-from flask import render_template, request, redirect, Flaskwtf,
+from flask import render_template, request, redirect
 from models.book import *
 
 @app.route ('/book_list')
@@ -31,12 +31,13 @@ def add_book():
 
 @app.route('/status', methods=["POST"])
 def update_status():
-    
-    if 'checked_in' in request.form['status']:
-        book_status = True
-    else:
-        book_status = False
-    return render_template('book_list.html', book_list = library.book_list)
+    for book in library.book_list:
+        if request.form['bookstatus']:
+            if 'checked_in' in request.form['bookstatus']:
+                book.status = True
+            else:
+                book.status = False
+        return render_template('book_list.html', book_list = library.book_list)
 
 
 @app.route('/book_list/delete/<title>', methods=["GET","POST"])

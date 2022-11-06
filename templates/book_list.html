@@ -20,13 +20,12 @@
             <h3>{{book.title}}</h3>
             <p>{{book.author}}</p>
             <p>{{book.genre}}</p>
-            <p>{{book.status}}</p>
+            <p>Book is checked in: {{book.status}}</p>
             <form action="/status" method="post">
-                <input type="radio" id="checked_in" name="status" value="checked_in">
+                <input type="radio" id="checked_in" name="bookstatus{{book.title}}" value="checked_in">
                 <label for="checked_in">Checked In</label>
-                <input type="radio" id="checked_out" name="status" value="checked_out">
+                <input type="radio" id="checked_out" name="bookstatus{book}}" value="checked_out">
                 <label for="checked_out">Checked Out</label>
-                <br>
                 <input type="submit" value="Update Status">
             </form>
         </div>
@@ -48,9 +47,5 @@
         <input type="submit" value="Add Book">
     </form>
 </main>
-
-
-
-
 
 {% endblock%}

@@ -4,9 +4,10 @@ body{
 }
 main{
     text-align: center;
-    background-color:rgb(0, 190, 181);
+    background-color: rgb(15, 159, 154);
     border-color: black;
     border-style: solid;
+    border-radius: 20%;
 }
 H1{
     text-align: center;

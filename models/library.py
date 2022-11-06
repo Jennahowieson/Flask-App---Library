@@ -28,3 +28,10 @@ def remove_book(old_book):
         if book.title == old_book:
             book_list.remove(book)
 
+# def update_book(book):
+#     for book in book_list:
+#         if 'checked_in' in request.form['status']:
+#             book_status = True
+#         else:
+#             book_status = False
+        
