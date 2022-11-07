@@ -29,15 +29,12 @@ def add_book():
     library.add_new_book(new_book)
     return render_template('book_list.html', book_list = library.book_list)
 
-@app.route('/status', methods=["POST"])
-def update_status():
-    for book in library.book_list:
-        if request.form['bookstatus']:
-            if 'checked_in' in request.form['bookstatus']:
-                book.status = True
-            else:
-                book.status = False
-        return render_template('book_list.html', book_list = library.book_list)
+@app.route("/status/<book_title>", methods=["POST"])
+def update_status(book_title):
+    book = library.return_book_by_title(book_title)
+    if 'checked_in' in request.form['bookstatus'] == "on":
+        book.status = True
+    return redirect ('/book_list')
 
 
 @app.route('/book_list/delete/<title>', methods=["GET","POST"])

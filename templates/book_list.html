@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/style.css">
     <title>Document</title>
 </head>
 
@@ -17,15 +16,13 @@
     <div id="all-books">
         {% for book in book_list %}
         <div id="single-book">
-            <h3><a href="/book_list/{{book.title}}">{{book.title}}</a></h3>
+            <h3><a href="/book_list">{{book.title}}</a></h3>
             <p>{{book.author}}</p>
             <p>{{book.genre}}</p>
             <p>Book is checked in: {{book.status}}</p>
-            <form action="/status" method="post">
-                <input type="radio" id="checked_in" name="bookstatus{{book.title}}" value="checked_in">
-                <label for="checked_in">Checked In</label>
-                <input type="radio" id="checked_out" name="bookstatus{book}}" value="checked_out">
-                <label for="checked_out">Checked Out</label>
+            <form action="/status/<book_title>" method="post">
+                <input type="checkbox" id="checked_in" name="bookstatus" value="checkedin">
+                <label for="checkedin">Checked In</label>
                 <input type="submit" value="Update Status">
             </form>
         </div>
@@ -41,8 +38,6 @@
         <br>
         <input type="radio" id="checked_in" name="status" value="checked_in">
         <label for="checked_in">Checked In</label>
-        <input type="radio" id="checked_out" name="status" value="checked_out">
-        <label for="checked_out">Checked Out</label>
         <br>
         <input type="submit" value="Add Book">
     </form>
