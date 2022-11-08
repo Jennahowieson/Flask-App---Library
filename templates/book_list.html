@@ -19,8 +19,8 @@
             <h3><a href="/book_list">{{book.title}}</a></h3>
             <p>{{book.author}}</p>
             <p>{{book.genre}}</p>
-            <p>Book is checked in: {{book.status}}</p>
-            <form action="/status/<book_title>" method="post">
+            <p>Book is checked in: {{book.checkedin}}</p>
+            <form action="/status/{{book.title}}" method="post">
                 <input type="checkbox" id="checked_in" name="bookstatus" value="checkedin">
                 <label for="checkedin">Checked In</label>
                 <input type="submit" value="Update Status">

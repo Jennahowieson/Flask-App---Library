@@ -2,7 +2,7 @@ from models.book import *
 from models.library import *
 
 book1 = Book("Becoming","Michelle Obama","Autobiography",True)
-book2 = Book("I am Malala","Malala Yousafzai","Autobiography",False)
+book2 = Book("Malala","Malala Yousafzai","Autobiography",False)
 book3 = Book("Bossypants","Tina Fey", "Autobiography",True)
 book4 = Book("The Handmaids Tale", "Margaret Atwood", "Fiction",True)
 book5 = Book("Milk and Honey", "Rupi Kaur", "Poetry",False)

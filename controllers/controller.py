@@ -32,13 +32,13 @@ def add_book():
 @app.route("/status/<book_title>", methods=["POST"])
 def update_status(book_title):
     book = library.return_book_by_title(book_title)
-    if 'checked_in' in request.form['bookstatus'] == "on":
-        book.status = True
+    if 'checkedin' in request.form['bookstatus'] == True:
+        book.checkedin = True
     return redirect ('/book_list')
 
 
 @app.route('/book_list/delete/<title>', methods=["GET","POST"])
 def delete(title):
     library.remove_book(title)
-    return render_template('book_list.html', book_list = library.book_list)
+    return redirect ('/book_list')
 
